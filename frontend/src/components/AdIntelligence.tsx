@@ -52,21 +52,43 @@ export function AdIntelligence({
 }: AdIntelligenceProps) {
   const { data, isLoading, error } = useQuery<AdIntelligenceData>({
     queryKey: ["/api/ad-intelligence", brandName, domain],
-    queryFn: async () => {
-      const res = await fetch(`${API_BASE_URL}/api/ad-intelligence`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          brand_name: brandName,
-          category,
-          competitors,
-          website_data: { title: brandName, description: domain },
-        }),
-      });
-      if (!res.ok) throw new Error("Failed to fetch ad intelligence");
-      return res.json();
+    queryFn: async ({ signal }) => {
+      // Create abort controller with extended timeout for slow OpenAI API
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+      
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/ad-intelligence`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            brand_name: brandName,
+            category,
+            competitors,
+            website_data: { title: brandName, description: domain },
+          }),
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+        
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          if (res.status === 429) {
+            throw new Error("OpenAI rate limit reached. Please wait a few minutes and try again.");
+          }
+          throw new Error(errorData.detail || "Failed to fetch ad intelligence");
+        }
+        return res.json();
+      } catch (err: any) {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') {
+          throw new Error("Request timed out. The analysis is taking longer than expected.");
+        }
+        throw err;
+      }
     },
     staleTime: 5 * 60 * 1000,
+    retry: false,
   });
 
   if (isLoading) {
@@ -83,9 +105,13 @@ export function AdIntelligence({
 
   if (error || !data) {
     return (
-      <Card>
-        <CardContent className="py-12 text-center text-muted-foreground">
-          Ad intelligence unavailable. Please try again.
+      <Card className="border border-red-200 bg-red-50">
+        <CardContent className="py-12 text-center">
+          <AlertCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-red-900 mb-2">Ad Intelligence Unavailable</h3>
+          <p className="text-sm text-red-700">
+            {error?.message || "Unable to load ad intelligence. Please try again."}
+          </p>
         </CardContent>
       </Card>
     );

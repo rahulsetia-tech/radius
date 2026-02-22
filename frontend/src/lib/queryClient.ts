@@ -53,9 +53,14 @@ export const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       staleTime: Infinity,
       retry: false,
+      // Increase timeout to 90 seconds for slow OpenAI API calls
+      // Backend can take 60+ seconds when OpenAI rate limits are hit
+      networkMode: 'online',
     },
     mutations: {
       retry: false,
+      // Increase mutation timeout to 90 seconds
+      networkMode: 'online',
     },
   },
 });

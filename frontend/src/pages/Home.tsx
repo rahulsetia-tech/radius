@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { apiRequest } from "@/lib/queryClient";
+import { API_BASE_URL } from "@/config";
 import LandingNav from "@/components/LandingNav";
 import HeroSection from "@/components/HeroSection";
 import LLMStatementSection from "@/components/LLMStatementSection";

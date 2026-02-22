@@ -17,19 +17,23 @@
   },
   {
     "content": "Fix RedditAnalyticsTab.tsx - add retry: false to both queries",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Fix VisibilityDashboard.tsx - add retry: false to all 5 queries",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Fix KnowledgeBaseSummaryPanel.tsx - add retry: false",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Fix SchemaGenerator.tsx - add retry: false",
-    "status": "pending"
+    "status": "completed"
+  },
+  {
+    "content": "Check for syntax errors with esbuild",
+    "status": "in_progress"
   },
   {
     "content": "Test the application with a live analysis to confirm stability",

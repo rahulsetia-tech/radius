@@ -1,6 +1,30 @@
 [
   {
-    "content": "Restart frontend + verify all tabs load",
-    "status": "completed"
+    "content": "Add retry: false to GapAnalysis.tsx useQuery configuration",
+    "status": "pending"
+  },
+  {
+    "content": "Add retry: false to AdIntelligence.tsx useQuery configuration",
+    "status": "pending"
+  },
+  {
+    "content": "Add retry: false to ContentPipeline.tsx useQuery configuration",
+    "status": "pending"
+  },
+  {
+    "content": "Add retry: false to SearchIntelligence.tsx useQuery configuration",
+    "status": "pending"
+  },
+  {
+    "content": "Check and fix other tab components (RedditAnalytics, VisibilityDashboard, etc.)",
+    "status": "pending"
+  },
+  {
+    "content": "Test the application with a live analysis to confirm stability",
+    "status": "pending"
+  },
+  {
+    "content": "Use testing agent for comprehensive verification",
+    "status": "pending"
   }
 ]

@@ -77,6 +77,7 @@ export function SchemaGenerator({ brandName, domain, websiteData, analysisData }
         },
         enabled: !!brandName,
         staleTime: 1000 * 60 * 10,
+        retry: false, // Prevent auto-reload loop on failure
     });
 
     if (isLoading) {

@@ -52,6 +52,7 @@ export function KnowledgeBaseSummaryPanel({ brandName, domain, analysisId }: Kno
     },
     staleTime: 0,
     gcTime: 0,
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   // ── Mutations ─────────────────────────────────────────────────────────────

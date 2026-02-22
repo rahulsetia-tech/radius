@@ -63,6 +63,7 @@ export function RedditAnalyticsTab({ brandName, analysisId }: RedditAnalyticsTab
     },
     staleTime: 0,
     gcTime: 0,
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   // Fetch Reddit threads with NO CACHING
@@ -78,6 +79,7 @@ export function RedditAnalyticsTab({ brandName, analysisId }: RedditAnalyticsTab
       if (!res.ok) throw new Error("Failed to fetch threads");
       return await res.json();
     },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const getSentimentIcon = (sentiment: string) => {

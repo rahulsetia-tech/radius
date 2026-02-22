@@ -18,7 +18,8 @@ export function VisibilityDashboard({ brandId = 'current', domain }: VisibilityD
     queryFn: async () => {
       const res = await fetch(`${API_BASE_URL}/api/visibility/mention-rate?brand_id=${brandId}${domainParam}`);
       return res.json();
-    }
+    },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const { data: positionData, isLoading: positionLoading } = useQuery({
@@ -26,7 +27,8 @@ export function VisibilityDashboard({ brandId = 'current', domain }: VisibilityD
     queryFn: async () => {
       const res = await fetch(`${API_BASE_URL}/api/visibility/position?brand_id=${brandId}${domainParam}`);
       return res.json();
-    }
+    },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const { data: sentimentData, isLoading: sentimentLoading } = useQuery({
@@ -34,7 +36,8 @@ export function VisibilityDashboard({ brandId = 'current', domain }: VisibilityD
     queryFn: async () => {
       const res = await fetch(`${API_BASE_URL}/api/visibility/sentiment?brand_id=${brandId}${domainParam}`);
       return res.json();
-    }
+    },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const { data: shareData, isLoading: shareLoading } = useQuery({
@@ -42,7 +45,8 @@ export function VisibilityDashboard({ brandId = 'current', domain }: VisibilityD
     queryFn: async () => {
       const res = await fetch(`${API_BASE_URL}/api/visibility/share-of-voice?${domain ? `domain=${encodeURIComponent(domain)}` : ''}`);
       return res.json();
-    }
+    },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const { data: geoData, isLoading: geoLoading } = useQuery({
@@ -50,7 +54,8 @@ export function VisibilityDashboard({ brandId = 'current', domain }: VisibilityD
     queryFn: async () => {
       const res = await fetch(`${API_BASE_URL}/api/visibility/geographic`);
       return res.json();
-    }
+    },
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   const isLoading = mentionLoading || positionLoading || sentimentLoading || shareLoading || geoLoading;

@@ -62,7 +62,7 @@ export function SchemaGenerator({ brandName, domain, websiteData, analysisData }
     const { data, isLoading, error } = useQuery<SchemaData>({
         queryKey: ["schema-generator", brandName],
         queryFn: async () => {
-            const res = await fetch("/api/schema-generator", {
+            const res = await fetch(`${API_BASE_URL}/api/schema-generator`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Bot, Users, AlertTriangle, TrendingUp } from "lucide-react";
+import { API_BASE_URL } from "@/config";
 
 interface PerceptionDimension {
   quality: number;

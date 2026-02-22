@@ -36,9 +36,8 @@ export default function KnowledgeBasePage() {
     
     setIsRegenerating(true);
     try {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
       const res = await fetch(
-        `${backendUrl}/api/knowledge-base/regenerate?website_url=${encodeURIComponent(websiteUrl)}&company_id=default`,
+        `${API_BASE_URL}/api/knowledge-base/regenerate?website_url=${encodeURIComponent(websiteUrl)}&company_id=default`,
         { method: "POST" }
       );
       

@@ -66,6 +66,7 @@ export default function AnalysisPage() {
     gcTime: 0, // Don't cache
     refetchOnMount: true,
     refetchOnWindowFocus: false,
+    retry: false, // Don't retry on 404 — prevents auto-reload loop
   });
 
   const handleNewAnalysis = () => {

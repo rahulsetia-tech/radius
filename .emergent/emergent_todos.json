@@ -13,11 +13,11 @@
   },
   {
     "content": "Set up backend/.env with OPENAI_API_KEY and MONGO_URL",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Install backend Python dependencies",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Copy frontend files (src/, index.html, vite.config.ts, tsconfig.json, package.json) to /app/frontend/",
@@ -28,7 +28,7 @@
     "status": "pending"
   },
   {
-    "content": "Configure supervisord + CORS for Emergent preview domain",
+    "content": "Configure supervisord for Vite (port 3000) instead of CRA",
     "status": "pending"
   },
   {

@@ -1,11 +1,15 @@
 [
   {
     "content": "Clone actual Radius app from GitHub into /app",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Read CONTEXT.md, MIGRATION.md, README.md from cloned repo",
-    "status": "pending"
+    "status": "completed"
+  },
+  {
+    "content": "Copy backend files (server.py, services/, controllers/, models/, requirements.txt) to /app/backend/",
+    "status": "in_progress"
   },
   {
     "content": "Set up backend/.env with OPENAI_API_KEY and MONGO_URL",
@@ -16,15 +20,19 @@
     "status": "pending"
   },
   {
-    "content": "Install frontend Node dependencies",
+    "content": "Copy frontend files (src/, index.html, vite.config.ts, tsconfig.json, package.json) to /app/frontend/",
     "status": "pending"
   },
   {
-    "content": "Configure supervisord to run both servers",
+    "content": "Install frontend Node dependencies via yarn",
     "status": "pending"
   },
   {
-    "content": "Verify app is running and accessible",
+    "content": "Configure supervisord + CORS for Emergent preview domain",
+    "status": "pending"
+  },
+  {
+    "content": "Verify both servers running and app accessible",
     "status": "pending"
   }
 ]

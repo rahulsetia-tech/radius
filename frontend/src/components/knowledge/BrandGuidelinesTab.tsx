@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Plus, X, Link as LinkIcon, FileUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient } from "@/lib/queryClient";
+import { API_BASE_URL } from "@/config";
 
 interface BrandGuidelinesData {
   tone?: string;

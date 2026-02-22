@@ -53,8 +53,7 @@ export function AdIntelligence({
   const { data, isLoading, error } = useQuery<AdIntelligenceData>({
     queryKey: ["/api/ad-intelligence", brandName, domain],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/ad-intelligence`, {
+      const res = await fetch(`${API_BASE_URL}/api/ad-intelligence`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

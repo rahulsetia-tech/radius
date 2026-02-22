@@ -82,6 +82,7 @@ export function GapAnalysis({ brandName, domain, overallScore, category = "Techn
       return res.json();
     },
     staleTime: 5 * 60 * 1000,
+    retry: false, // Prevent auto-reload loop on failure
   });
 
   if (isLoading) {

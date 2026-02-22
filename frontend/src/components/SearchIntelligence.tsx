@@ -88,6 +88,7 @@ export function SearchIntelligence({ brandName, analysisId, category }: SearchIn
             return res.json();
         },
         enabled: !!brandName,
+        retry: false, // Prevent auto-reload loop on failure
     });
 
     if (isLoading) {

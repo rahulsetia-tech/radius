@@ -41,6 +41,7 @@ export function ContentPipeline({ brandName, analysisId, category }: ContentPipe
             return data;
         },
         enabled: !!brandName,
+        retry: false, // Prevent auto-reload loop on failure
     });
 
     // Step 3: Blog generation (manual trigger)

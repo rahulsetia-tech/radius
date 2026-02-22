@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { TrendingUp, MessageSquare, ThumbsUp, ExternalLink, Search } from "lucide-react";
 import LandingNav from "@/components/LandingNav";
 import Footer from "@/components/Footer";
+import { API_BASE_URL } from "@/config";
 
 interface RedditThread {
   id: string;

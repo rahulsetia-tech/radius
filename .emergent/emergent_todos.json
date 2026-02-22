@@ -1,15 +1,11 @@
 [
   {
-    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback",
+    "content": "FIX #1b: Fix KnowledgeBaseSummaryPanel.tsx - 4 hardcoded /api/ URLs",
     "status": "completed"
   },
   {
-    "content": "FIX #1b: Fix KnowledgeBaseSummaryPanel.tsx - 4 hardcoded /api/ URLs",
-    "status": "in_progress"
-  },
-  {
     "content": "FIX #1c: Fix RedditDashboard.tsx - inline backendUrl pattern",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "FIX #1d: Fix KnowledgeBasePage.tsx - inline backendUrl pattern",

@@ -354,7 +354,7 @@ export function KnowledgeBaseSummaryPanel({ brandName, domain, analysisId }: Kno
                           title="Remove"
                           onClick={async () => {
                             await fetch(
-                              `/api/knowledge-base/evidence/${item.id}?company_id=${companyId}`,
+                              `${API_BASE_URL}/api/knowledge-base/evidence/${item.id}?company_id=${companyId}`,
                               { method: "DELETE" }
                             );
                             queryClient.invalidateQueries({ queryKey: ["/api/knowledge-base", companyId] });

@@ -69,13 +69,12 @@ export function RedditAnalyticsTab({ brandName, analysisId }: RedditAnalyticsTab
   const { data: threads, isLoading: threadsLoading } = useQuery<RedditThread[]>({
     queryKey: ["/api/reddit/threads", searchQuery, filterType, filterSentiment, analysisId],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
       const params = new URLSearchParams();
       if (searchQuery) params.append("search", searchQuery);
       if (filterType !== "all") params.append("filter", filterType);
       if (filterSentiment !== "all") params.append("sentiment", filterSentiment);
       
-      const res = await fetch(`${backendUrl}/api/reddit/threads?${params.toString()}`);
+      const res = await fetch(`${API_BASE_URL}/api/reddit/threads?${params.toString()}`);
       if (!res.ok) throw new Error("Failed to fetch threads");
       return await res.json();
     },

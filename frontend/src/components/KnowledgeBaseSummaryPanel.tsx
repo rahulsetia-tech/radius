@@ -72,7 +72,7 @@ export function KnowledgeBaseSummaryPanel({ brandName, domain, analysisId }: Kno
 
   const addEvidenceMutation = useMutation({
     mutationFn: async (evidence: { title: string; content: string; type: string }) => {
-      const res = await fetch(`/api/knowledge-base/evidence?company_id=${companyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/evidence?company_id=${companyId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(evidence),

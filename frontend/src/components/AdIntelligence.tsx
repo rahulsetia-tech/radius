@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { Megaphone, Target, TrendingUp, AlertCircle } from "lucide-react";
+import { API_BASE_URL } from "@/config";
 
 interface AdStrategy {
   format: string;

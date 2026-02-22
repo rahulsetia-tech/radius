@@ -6,6 +6,7 @@ import AnalysisResults from "@/components/AnalysisResults";
 import { Loader2, AlertCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { API_BASE_URL } from "@/config";
 import type { AnalysisResult } from "@/types/schema";
 
 /**

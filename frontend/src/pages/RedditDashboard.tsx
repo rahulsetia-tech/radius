@@ -47,8 +47,7 @@ export default function RedditDashboard() {
   const { data: metrics, isLoading: metricsLoading } = useQuery<RedditMetrics>({
     queryKey: ["/api/reddit/metrics"],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/reddit/metrics`);
+      const res = await fetch(`${API_BASE_URL}/api/reddit/metrics`);
       if (!res.ok) throw new Error("Failed to fetch metrics");
       return await res.json();
     },

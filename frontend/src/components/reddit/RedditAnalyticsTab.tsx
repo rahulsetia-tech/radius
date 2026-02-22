@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { TrendingUp, MessageSquare, ExternalLink, Search, AlertTriangle } from "lucide-react";
 import { MockDataBanner } from "@/components/reddit/MockDataBanner";
+import { API_BASE_URL } from "@/config";
 
 interface RedditThread {
   id: string;

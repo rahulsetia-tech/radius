@@ -9,6 +9,12 @@ interface RecommendationCardProps {
   estimatedImpact: string;
 }
 
+const priorityStyles: Record<string, string> = {
+  high: "bg-red-100 text-red-800 border border-red-200 px-3 py-1 rounded-full text-xs font-semibold",
+  medium: "bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 rounded-full text-xs font-semibold",
+  low: "bg-green-100 text-green-800 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold",
+};
+
 export default function RecommendationCard({
   title,
   description,
@@ -17,17 +23,6 @@ export default function RecommendationCard({
   actionItems,
   estimatedImpact
 }: RecommendationCardProps) {
-  const getPriorityBadgeStyle = () => {
-    switch (priority) {
-      case "high":
-        return "bg-foreground text-background px-3 py-1 rounded-full text-xs font-medium";
-      case "medium":
-        return "border border-border text-foreground px-3 py-1 rounded-full text-xs font-medium";
-      case "low":
-        return "bg-muted text-foreground px-3 py-1 rounded-full text-xs font-medium";
-    }
-  };
-
   return (
     <Card data-testid={`card-recommendation-${category}`}>
       <CardHeader className="pb-3">
@@ -37,7 +32,7 @@ export default function RecommendationCard({
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <div className="flex flex-col gap-2 items-end flex-shrink-0">
-            <span className={getPriorityBadgeStyle()} data-testid={`badge-priority-${priority}`}>
+            <span className={priorityStyles[priority]} data-testid={`badge-priority-${priority}`}>
               {priority.toUpperCase()}
             </span>
             <span className="text-xs text-muted-foreground capitalize">{category}</span>
@@ -59,7 +54,7 @@ export default function RecommendationCard({
         
         <div className="pt-3 border-t flex items-center gap-2 text-sm">
           <span className="text-muted-foreground">Estimated Impact:</span>
-          <span className="font-semibold">{estimatedImpact}</span>
+          <span className="font-semibold text-foreground">{estimatedImpact}</span>
         </div>
       </CardContent>
     </Card>

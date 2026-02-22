@@ -35,10 +35,8 @@ export default function AnalysisPage() {
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["analysis", analysisId],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      
       // Add cache-busting headers
-      const response = await fetch(`${backendUrl}/api/analysis/${analysisId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/analysis/${analysisId}`, {
         method: "GET",
         headers: {
           "Cache-Control": "no-store, no-cache, must-revalidate",

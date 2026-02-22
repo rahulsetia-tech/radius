@@ -1,14 +1,10 @@
 [
   {
-    "content": "BUG #3: Improve error handling in Home.tsx analysis loading",
+    "content": "UI Polish: Landing page input border, tab overflow, score colors, competitor/recommendation cards",
     "status": "completed"
   },
   {
-    "content": "UI Polish: Landing page input border, tab overflow, score colors, competitor/recommendation cards",
+    "content": "Verification: Screenshot landing page and analysis tabs",
     "status": "in_progress"
-  },
-  {
-    "content": "Verification: Screenshot and test all tabs",
-    "status": "pending"
   }
 ]

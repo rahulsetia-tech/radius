@@ -40,7 +40,7 @@ export function KnowledgeBaseSummaryPanel({ brandName, domain, analysisId }: Kno
   const { data, isLoading, error } = useQuery({
     queryKey: ["/api/knowledge-base", companyId],
     queryFn: async () => {
-      const res = await fetch(`/api/knowledge-base?company_id=${companyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base?company_id=${companyId}`, {
         headers: {
           "Cache-Control": "no-store, no-cache, must-revalidate",
           "Pragma": "no-cache",

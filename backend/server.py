@@ -19,14 +19,14 @@ load_dotenv()
 
 app = FastAPI(title="Radius GEO Analytics API")
 
-# CORS Configuration
+# CORS Configuration - read from environment for flexibility
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
+allow_origins = CORS_ORIGINS.split(",") if CORS_ORIGINS != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5173",
-    ],
-    allow_origin_regex=r"https://.*\.preview\.emergentagent\.com",
+    allow_origins=allow_origins,
+    allow_origin_regex=r"https://.*\.preview\.emergentagent\.com" if CORS_ORIGINS != "*" else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -310,6 +310,37 @@ export default function AnalysisResults({ data, analysisId }: AnalysisResultsPro
           </div>
         )}
 
+        {activeTab === "gap-analysis" && (
+          <div className="space-y-6" data-testid="content-gap-analysis">
+            <GapAnalysis
+              brandName={brandInfo?.name}
+              domain={domain}
+              overallScore={overallScore}
+              category={brandInfo?.industry}
+            />
+          </div>
+        )}
+
+        {activeTab === "recommendations" && (
+          <div className="space-y-6" data-testid="content-recommendations">
+            <div>
+              <h2 className="text-2xl font-bold">AI-Powered Recommendations</h2>
+              <p className="text-muted-foreground mt-1">Personalized actions to improve your AI visibility</p>
+            </div>
+            <div className="grid grid-cols-1 gap-6">
+              {recommendations && recommendations.length > 0 ? (
+                recommendations.map((rec: any, idx: number) => (
+                  <RecommendationCard key={idx} {...rec} />
+                ))
+              ) : (
+                <div className="text-center text-muted-foreground py-12">
+                  No recommendations available
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {activeTab === "ad-intelligence" && (
           <div className="space-y-6" data-testid="content-ad-intelligence">
             <AdIntelligence

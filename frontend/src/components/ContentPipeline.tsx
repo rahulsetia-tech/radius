@@ -46,7 +46,7 @@ export function ContentPipeline({ brandName, analysisId, category }: ContentPipe
     // Step 3: Blog generation (manual trigger)
     const blogMutation = useMutation({
         mutationFn: async (topic: string) => {
-            const res = await fetch(`${API_BASE}/api/content-pipeline/blog`, {
+            const res = await fetch(`${API_BASE_URL}/api/content-pipeline/blog`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

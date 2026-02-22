@@ -1,15 +1,11 @@
 [
   {
-    "content": "BUG #2: Add gap-analysis and recommendations tabs to AnalysisResults.tsx",
+    "content": "BUG #3: Improve error handling in Home.tsx analysis loading",
     "status": "completed"
   },
   {
-    "content": "BUG #3: Improve error handling in Home.tsx analysis loading",
+    "content": "UI Polish: Landing page input border, tab overflow, score colors, competitor/recommendation cards",
     "status": "in_progress"
-  },
-  {
-    "content": "UI Polish: Landing page, tabs, score colors, competitor/recommendation cards",
-    "status": "pending"
   },
   {
     "content": "Verification: Screenshot and test all tabs",

@@ -12,6 +12,7 @@ import {
   PlusCircle, ChevronDown, ChevronUp, Save, Trash2, X
 } from "lucide-react";
 import { useLocation } from "wouter";
+import { API_BASE_URL } from "@/config";
 
 interface KnowledgeBaseSummaryPanelProps {
   brandName?: string;

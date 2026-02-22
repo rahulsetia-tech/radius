@@ -16,6 +16,13 @@ interface CompetitorCardProps {
   description?: string;
 }
 
+function getScoreBadgeStyle(score: number): string {
+  if (score >= 80) return "bg-green-100 text-green-800 border-green-200";
+  if (score >= 60) return "bg-yellow-100 text-yellow-800 border-yellow-200";
+  if (score >= 40) return "bg-orange-100 text-orange-800 border-orange-200";
+  return "bg-red-100 text-red-800 border-red-200";
+}
+
 export default function CompetitorCard({
   rank,
   name,
@@ -31,7 +38,11 @@ export default function CompetitorCard({
 }: CompetitorCardProps) {
   return (
     <Card 
-      className={`group transition-all hover-elevate ${isCurrentBrand ? "border-2 border-foreground/20" : ""}`}
+      className={`group transition-all hover-elevate ${
+        isCurrentBrand
+          ? "border-2 border-foreground ring-2 ring-foreground/10 bg-foreground/[0.02]"
+          : "border border-border"
+      }`}
       data-testid={`card-competitor-${rank}`}
     >
       <CardContent className="p-0">
@@ -39,7 +50,9 @@ export default function CompetitorCard({
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-2">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-foreground/5 text-foreground font-bold text-sm flex-shrink-0">
+                <div className={`flex items-center justify-center w-8 h-8 rounded-lg font-bold text-sm flex-shrink-0 ${
+                  isCurrentBrand ? "bg-foreground text-background" : "bg-foreground/5 text-foreground"
+                }`}>
                   {rank}
                 </div>
                 <h3 className="font-bold text-xl" data-testid={`text-competitor-name-${rank}`}>
@@ -63,11 +76,14 @@ export default function CompetitorCard({
               </a>
             </div>
             
-            <div className="flex flex-col items-end gap-1">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-3xl font-bold tabular-nums" data-testid={`text-competitor-score-${rank}`}>{score}</span>
-                <span className="text-sm text-muted-foreground font-medium">/100</span>
-              </div>
+            <div className="flex flex-col items-end gap-2">
+              {/* Colored score badge */}
+              <span className={`inline-flex items-baseline gap-1 px-3 py-1 rounded-full text-sm font-bold border ${getScoreBadgeStyle(score)}`}
+                data-testid={`text-competitor-score-${rank}`}
+              >
+                {score}
+                <span className="text-xs font-normal opacity-70">/100</span>
+              </span>
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <TrendingUp className="w-3.5 h-3.5" />
                 <span className="text-sm font-semibold">{marketOverlap}%</span>

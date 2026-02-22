@@ -66,7 +66,7 @@ export function ContentPipeline({ brandName, analysisId, category }: ContentPipe
     // Step 4: CMS export (manual trigger)
     const exportMutation = useMutation({
         mutationFn: async (format: string) => {
-            const res = await fetch(`${API_BASE}/api/content-pipeline/export`, {
+            const res = await fetch(`${API_BASE_URL}/api/content-pipeline/export`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ content: blogData || {}, format }),

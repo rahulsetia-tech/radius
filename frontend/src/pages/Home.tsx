@@ -80,6 +80,22 @@ export default function Home() {
         isLoading={analyzeMutation.isPending || isAnalyzing}
         onTimelineComplete={handleTimelineComplete}
       />
+      {/* Error display for failed analysis */}
+      {analyzeMutation.error && !isAnalyzing && (
+        <div className="max-w-2xl mx-auto mt-4 px-6">
+          <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-center">
+            <p className="text-red-600 font-medium">Analysis failed</p>
+            <p className="text-red-500 text-sm mt-1">
+              {analyzeMutation.error instanceof Error
+                ? analyzeMutation.error.message
+                : "Unknown error. Please try again."}
+            </p>
+            <p className="text-gray-500 text-xs mt-2">
+              This usually means the AI service is temporarily unavailable. Try again in a moment.
+            </p>
+          </div>
+        </div>
+      )}
       <LLMStatementSection />
       <VideoSection />
       <WhatIsGEOSection />

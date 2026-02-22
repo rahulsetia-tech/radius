@@ -40,8 +40,6 @@ interface SearchData {
     is_demo?: boolean;
 }
 
-const API_BASE = import.meta.env.REACT_APP_BACKEND_URL || "";
-
 function getScoreColor(score: number) {
     if (score >= 70) return "text-green-600";
     if (score >= 40) return "text-yellow-600";

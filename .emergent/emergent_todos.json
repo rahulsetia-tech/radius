@@ -1,0 +1,30 @@
+[
+  {
+    "content": "Clone actual Radius app from GitHub into /app",
+    "status": "in_progress"
+  },
+  {
+    "content": "Read CONTEXT.md, MIGRATION.md, README.md from cloned repo",
+    "status": "pending"
+  },
+  {
+    "content": "Set up backend/.env with OPENAI_API_KEY and MONGO_URL",
+    "status": "pending"
+  },
+  {
+    "content": "Install backend Python dependencies",
+    "status": "pending"
+  },
+  {
+    "content": "Install frontend Node dependencies",
+    "status": "pending"
+  },
+  {
+    "content": "Configure supervisord to run both servers",
+    "status": "pending"
+  },
+  {
+    "content": "Verify app is running and accessible",
+    "status": "pending"
+  }
+]

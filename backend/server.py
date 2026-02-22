@@ -34,13 +34,14 @@ app.add_middleware(
 
 # Database connection — short timeouts so the server never hangs waiting for Mongo
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
+DB_NAME = os.getenv("DB_NAME", "radius_db")
 client = AsyncIOMotorClient(
     MONGO_URL,
     serverSelectionTimeoutMS=2000,
     connectTimeoutMS=2000,
     socketTimeoutMS=2000,
 )
-db = client.radius_db
+db = client[DB_NAME]
 
 # OpenAI client (only supported LLM)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

@@ -19,14 +19,15 @@ load_dotenv()
 
 app = FastAPI(title="Radius GEO Analytics API")
 
-# CORS Configuration - read from environment for flexibility
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
-allow_origins = CORS_ORIGINS.split(",") if CORS_ORIGINS != "*" else ["*"]
-
+# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allow_origins,
-    allow_origin_regex=r"https://.*\.preview\.emergentagent\.com" if CORS_ORIGINS != "*" else None,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://localhost:8001",
+    ],
+    allow_origin_regex=r"https://.*\.preview\.emergentagent\.com",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -1378,5 +1379,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.environ.get("PORT", 8001))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

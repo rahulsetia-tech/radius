@@ -1,10 +1,6 @@
 [
   {
-    "content": "UI Polish: Landing page input border, tab overflow, score colors, competitor/recommendation cards",
-    "status": "completed"
-  },
-  {
     "content": "Verification: Screenshot landing page and analysis tabs",
-    "status": "in_progress"
+    "status": "completed"
   }
 ]

@@ -1,15 +1,11 @@
 [
   {
-    "content": "Read all affected files before making any changes",
+    "content": "BUG #1: Fix API_BASE_URL - update config.ts and standardize all 13 components",
     "status": "completed"
   },
   {
-    "content": "BUG #1: Fix API_BASE_URL - update config.ts and standardize all 13 components",
-    "status": "in_progress"
-  },
-  {
     "content": "BUG #2: Add gap-analysis and recommendations tabs to AnalysisResults.tsx",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "BUG #3: Improve error handling in Home.tsx analysis loading",

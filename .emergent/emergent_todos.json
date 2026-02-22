@@ -1,14 +1,10 @@
 [
   {
-    "content": "FIX #1d: Fix KnowledgeBasePage.tsx - inline backendUrl pattern",
+    "content": "FIX #2: Add retry:false to AnalysisPage.tsx useQuery",
     "status": "completed"
   },
   {
-    "content": "FIX #2: Add retry:false to AnalysisPage.tsx useQuery",
-    "status": "in_progress"
-  },
-  {
     "content": "Restart frontend + verify all tabs load",
-    "status": "pending"
+    "status": "in_progress"
   }
 ]

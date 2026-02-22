@@ -76,18 +76,36 @@ export function SearchIntelligence({ brandName, analysisId, category }: SearchIn
     const { data, isLoading, isError } = useQuery<SearchData>({
         queryKey: ["search-intelligence", brandName, analysisId],
         queryFn: async () => {
-            const res = await fetch(`${API_BASE_URL}/api/search-intelligence`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    brand_name: brandName || "",
-                    category: category || "",
-                }),
-            });
-            if (!res.ok) throw new Error("Failed to fetch search intelligence");
-            return res.json();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+            
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/search-intelligence`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        brand_name: brandName || "",
+                        category: category || "",
+                    }),
+                    signal: controller.signal,
+                });
+                clearTimeout(timeoutId);
+                
+                if (!res.ok) {
+                    const errorData = await res.json().catch(() => ({}));
+                    throw new Error(errorData.detail || "Failed to fetch search intelligence");
+                }
+                return res.json();
+            } catch (err: any) {
+                clearTimeout(timeoutId);
+                if (err.name === 'AbortError') {
+                    throw new Error("Request timed out. Please try again.");
+                }
+                throw err;
+            }
         },
         enabled: !!brandName,
+        retry: false,
     });
 
     if (isLoading) {

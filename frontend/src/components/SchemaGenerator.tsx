@@ -62,21 +62,39 @@ export function SchemaGenerator({ brandName, domain, websiteData, analysisData }
     const { data, isLoading, error } = useQuery<SchemaData>({
         queryKey: ["schema-generator", brandName],
         queryFn: async () => {
-            const res = await fetch(`${API_BASE_URL}/api/schema-generator`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    brand_name: brandName || "Brand",
-                    domain: domain || "",
-                    website_data: websiteData || {},
-                    analysis_data: analysisData || {},
-                }),
-            });
-            if (!res.ok) throw new Error("Schema generation failed");
-            return res.json();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+            
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/schema-generator`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        brand_name: brandName || "Brand",
+                        domain: domain || "",
+                        website_data: websiteData || {},
+                        analysis_data: analysisData || {},
+                    }),
+                    signal: controller.signal,
+                });
+                clearTimeout(timeoutId);
+                
+                if (!res.ok) {
+                    const errorData = await res.json().catch(() => ({}));
+                    throw new Error(errorData.detail || "Schema generation failed");
+                }
+                return res.json();
+            } catch (err: any) {
+                clearTimeout(timeoutId);
+                if (err.name === 'AbortError') {
+                    throw new Error("Request timed out. Please try again.");
+                }
+                throw err;
+            }
         },
         enabled: !!brandName,
         staleTime: 1000 * 60 * 10,
+        retry: false,
     });
 
     if (isLoading) {

@@ -30,17 +30,35 @@ export function ContentPipeline({ brandName, analysisId, category }: ContentPipe
     const socialQuery = useQuery({
         queryKey: ["content-pipeline-social", brandName],
         queryFn: async () => {
-            const res = await fetch(`${API_BASE_URL}/api/content-pipeline/social`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ brand_name: brandName, keywords: [] }),
-            });
-            if (!res.ok) throw new Error("Failed");
-            const data = await res.json();
-            setSocialData(data);
-            return data;
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+            
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/content-pipeline/social`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ brand_name: brandName, keywords: [] }),
+                    signal: controller.signal,
+                });
+                clearTimeout(timeoutId);
+                
+                if (!res.ok) {
+                    const errorData = await res.json().catch(() => ({}));
+                    throw new Error(errorData.detail || "Failed to fetch social data");
+                }
+                const data = await res.json();
+                setSocialData(data);
+                return data;
+            } catch (err: any) {
+                clearTimeout(timeoutId);
+                if (err.name === 'AbortError') {
+                    throw new Error("Request timed out. Please try again.");
+                }
+                throw err;
+            }
         },
         enabled: !!brandName,
+        retry: false,
     });
 
     // Step 3: Blog generation (manual trigger)

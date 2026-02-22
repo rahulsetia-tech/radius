@@ -1,10 +1,6 @@
 [
   {
-    "content": "FIX #2: Add retry:false to AnalysisPage.tsx useQuery",
-    "status": "completed"
-  },
-  {
     "content": "Restart frontend + verify all tabs load",
-    "status": "in_progress"
+    "status": "completed"
   }
 ]

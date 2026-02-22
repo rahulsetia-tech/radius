@@ -29,8 +29,7 @@ export function CompanyDescriptionTab({ data }: CompanyDescriptionTabProps) {
 
   const updateMutation = useMutation({
     mutationFn: async (updates: Partial<CompanyDescriptionData>) => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/knowledge-base/company-description?company_id=default`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/company-description?company_id=default`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),

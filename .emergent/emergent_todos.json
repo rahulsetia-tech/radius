@@ -5,10 +5,10 @@
   },
   {
     "content": "Restart both frontend and backend services",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Verify both servers running and app accessible",
-    "status": "pending"
+    "status": "completed"
   }
 ]

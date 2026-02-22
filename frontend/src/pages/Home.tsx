@@ -28,8 +28,7 @@ export default function Home() {
   const analyzeMutation = useMutation({
     mutationFn: async (url: string) => {
       // Add cache-busting headers to ensure fresh analysis
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const response = await fetch(`${backendUrl}/api/analyze`, {
+      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

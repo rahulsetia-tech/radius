@@ -68,8 +68,7 @@ export function GapAnalysis({ brandName, domain, overallScore, category = "Techn
   const { data, isLoading, error } = useQuery<GapAnalysisData>({
     queryKey: ["/api/gap-analysis", brandName, domain],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/gap-analysis`, {
+      const res = await fetch(`${API_BASE_URL}/api/gap-analysis`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -38,8 +38,7 @@ export function EvidenceTab({ data }: EvidenceTabProps) {
 
   const addMutation = useMutation({
     mutationFn: async (evidence: typeof newEvidence) => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/knowledge-base/evidence?company_id=default`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/evidence?company_id=default`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ evidence }),

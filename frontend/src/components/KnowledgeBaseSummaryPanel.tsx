@@ -57,7 +57,7 @@ export function KnowledgeBaseSummaryPanel({ brandName, domain, analysisId }: Kno
   // ── Mutations ─────────────────────────────────────────────────────────────
   const updateDescMutation = useMutation({
     mutationFn: async (desc: Record<string, string>) => {
-      const res = await fetch(`/api/knowledge-base/company-description?company_id=${companyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/company-description?company_id=${companyId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(desc),

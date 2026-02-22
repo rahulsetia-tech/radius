@@ -1,15 +1,11 @@
 [
   {
-    "content": "READ all current file states before any edits",
+    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback",
     "status": "completed"
   },
   {
-    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback",
-    "status": "in_progress"
-  },
-  {
     "content": "FIX #1b: Fix KnowledgeBaseSummaryPanel.tsx - 4 hardcoded /api/ URLs",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "FIX #1c: Fix RedditDashboard.tsx - inline backendUrl pattern",

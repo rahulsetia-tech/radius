@@ -101,7 +101,7 @@ export default function HeroSection({ onAnalyze, isLoading, onTimelineComplete }
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               disabled={isLoading}
-              className="w-full border-0 focus-visible:ring-0 text-base h-16 bg-white text-black placeholder:text-gray-400 rounded-full"
+              className="w-full border border-gray-200 focus-visible:ring-1 focus-visible:ring-gray-400 text-base h-16 bg-white text-black placeholder:text-gray-400 rounded-full"
               style={{
                 paddingRight: '60px',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.05)'

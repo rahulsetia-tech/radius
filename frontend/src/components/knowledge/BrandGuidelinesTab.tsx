@@ -49,8 +49,7 @@ export function BrandGuidelinesTab({ data }: BrandGuidelinesTabProps) {
 
   const extractMutation = useMutation({
     mutationFn: async (url: string) => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/knowledge-base/extract-guidelines`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/extract-guidelines`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),

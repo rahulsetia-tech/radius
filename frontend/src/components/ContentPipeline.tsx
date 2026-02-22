@@ -30,7 +30,7 @@ export function ContentPipeline({ brandName, analysisId, category }: ContentPipe
     const socialQuery = useQuery({
         queryKey: ["content-pipeline-social", brandName],
         queryFn: async () => {
-            const res = await fetch(`${API_BASE}/api/content-pipeline/social`, {
+            const res = await fetch(`${API_BASE_URL}/api/content-pipeline/social`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ brand_name: brandName, keywords: [] }),

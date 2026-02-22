@@ -1,19 +1,11 @@
 [
   {
-    "content": "Install backend Python dependencies",
-    "status": "completed"
-  },
-  {
-    "content": "Copy frontend files (src/, index.html, vite.config.ts, tsconfig.json, package.json) to /app/frontend/",
-    "status": "completed"
-  },
-  {
     "content": "Install frontend Node dependencies via yarn",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
-    "content": "Configure supervisord for Vite (port 3000) instead of CRA",
-    "status": "pending"
+    "content": "Restart both frontend and backend services",
+    "status": "in_progress"
   },
   {
     "content": "Verify both servers running and app accessible",

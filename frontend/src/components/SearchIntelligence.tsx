@@ -76,7 +76,7 @@ export function SearchIntelligence({ brandName, analysisId, category }: SearchIn
     const { data, isLoading, isError } = useQuery<SearchData>({
         queryKey: ["search-intelligence", brandName, analysisId],
         queryFn: async () => {
-            const res = await fetch(`${API_BASE}/api/search-intelligence`, {
+            const res = await fetch(`${API_BASE_URL}/api/search-intelligence`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -56,8 +56,7 @@ export function EvidenceTab({ data }: EvidenceTabProps) {
 
   const deleteMutation = useMutation({
     mutationFn: async (evidenceId: string) => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/knowledge-base/evidence/${evidenceId}?company_id=default`, {
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base/evidence/${evidenceId}?company_id=default`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete");

@@ -40,16 +40,17 @@ interface TabConfig {
 
 const tabs: TabConfig[] = [
   { id: "overview", label: "Overview" },
+  { id: "gap-analysis", label: "Gap Analysis" },
+  { id: "recommendations", label: "Recommendations" },
+  { id: "competitors", label: "Competitor Analysis" },
   { id: "ad-intelligence", label: "Ad Intelligence" },
   { id: "content-pipeline", label: "Content Pipeline" },
   { id: "search-sge", label: "Search & SGE" },
   { id: "schema-generator", label: "Schema Generator" },
   { id: "knowledge-base", label: "Knowledge Base" },
   { id: "visibility", label: "Visibility" },
-  { id: "score-breakdown", label: "Score Breakdown" },
-  { id: "competitors", label: "Competitor Analysis" },
   { id: "reddit", label: "Reddit Intelligence" },
-  { id: "methodology", label: "Methodology" },
+  { id: "score-breakdown", label: "Score Breakdown" },
   { id: "discovery", label: "Competitor Discovery" },
   { id: "accuracy", label: "Accuracy Check" },
 ];

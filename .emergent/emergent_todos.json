@@ -1,30 +1,26 @@
 [
   {
     "content": "READ all current file states before any edits",
+    "status": "completed"
+  },
+  {
+    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback",
     "status": "in_progress"
   },
   {
-    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback (remove console.log)",
+    "content": "FIX #1b: Fix KnowledgeBaseSummaryPanel.tsx - 4 hardcoded /api/ URLs",
     "status": "pending"
   },
   {
-    "content": "FIX #1b: Fix NEW files: KnowledgeBaseSummaryPanel.tsx, RedditDashboard.tsx, KnowledgeBasePage.tsx",
+    "content": "FIX #1c: Fix RedditDashboard.tsx - inline backendUrl pattern",
     "status": "pending"
   },
   {
-    "content": "FIX #1c: Verify all 12 previously-touched files are correct",
+    "content": "FIX #1d: Fix KnowledgeBasePage.tsx - inline backendUrl pattern",
     "status": "pending"
   },
   {
-    "content": "FIX #2: Add retry:false to AnalysisPage.tsx query",
-    "status": "pending"
-  },
-  {
-    "content": "FIX #3: Verify gap-analysis + recommendations tabs in AnalysisResults.tsx",
-    "status": "pending"
-  },
-  {
-    "content": "FIX #4: Verify error display on Home.tsx",
+    "content": "FIX #2: Add retry:false to AnalysisPage.tsx useQuery",
     "status": "pending"
   },
   {

@@ -1,15 +1,11 @@
 [
   {
-    "content": "FIX #1c: Fix RedditDashboard.tsx - inline backendUrl pattern",
+    "content": "FIX #1d: Fix KnowledgeBasePage.tsx - inline backendUrl pattern",
     "status": "completed"
   },
   {
-    "content": "FIX #1d: Fix KnowledgeBasePage.tsx - inline backendUrl pattern",
-    "status": "in_progress"
-  },
-  {
     "content": "FIX #2: Add retry:false to AnalysisPage.tsx useQuery",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Restart frontend + verify all tabs load",

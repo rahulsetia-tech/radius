@@ -52,8 +52,7 @@ export function RedditAnalyticsTab({ brandName, analysisId }: RedditAnalyticsTab
   const { data: metrics, isLoading: metricsLoading } = useQuery<RedditMetrics>({
     queryKey: ["/api/reddit/metrics", analysisId],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/reddit/metrics?analysis_id=${analysisId || 'default'}`, {
+      const res = await fetch(`${API_BASE_URL}/api/reddit/metrics?analysis_id=${analysisId || 'default'}`, {
         headers: {
           "Cache-Control": "no-store, no-cache",
           "X-Request-Nonce": `${Date.now()}`,

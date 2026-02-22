@@ -1,23 +1,23 @@
 [
   {
     "content": "Fix GapAnalysis.tsx - add retry: false",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Fix AdIntelligence.tsx - add retry: false",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Fix ContentPipeline.tsx - add retry: false",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Fix SearchIntelligence.tsx - add retry: false",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Fix RedditAnalyticsTab.tsx - add retry: false to both queries",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Fix VisibilityDashboard.tsx - add retry: false to all 5 queries",

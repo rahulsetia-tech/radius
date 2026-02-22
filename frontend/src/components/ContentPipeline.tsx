@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AlertTriangle, MessageSquare, PenTool, Download, ChevronRight, Check, Loader2, FileText, ArrowRight } from "lucide-react";
+import { API_BASE_URL } from "@/config";
 
 interface ContentPipelineProps {
     brandName?: string;

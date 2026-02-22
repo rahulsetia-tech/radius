@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { CompanyDescriptionTab } from "@/components/knowledge/CompanyDescriptionTab";
 import { BrandGuidelinesTab } from "@/components/knowledge/BrandGuidelinesTab";
 import { EvidenceTab } from "@/components/knowledge/EvidenceTab";
+import { API_BASE_URL } from "@/config";
 
 export default function KnowledgeBasePage() {
   const [activeTab, setActiveTab] = useState("company");

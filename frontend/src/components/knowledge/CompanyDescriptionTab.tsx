@@ -50,9 +50,8 @@ export function CompanyDescriptionTab({ data }: CompanyDescriptionTabProps) {
 
   const improveMutation = useMutation({
     mutationFn: async ({ text, mode }: { text: string; mode: string }) => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
       const res = await fetch(
-        `${backendUrl}/api/knowledge-base/improve?mode=${mode}`,
+        `${API_BASE_URL}/api/knowledge-base/improve?mode=${mode}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

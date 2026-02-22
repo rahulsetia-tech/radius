@@ -9,11 +9,11 @@
   },
   {
     "content": "Copy backend files (server.py, services/, controllers/, models/, requirements.txt) to /app/backend/",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Set up backend/.env with OPENAI_API_KEY and MONGO_URL",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Install backend Python dependencies",

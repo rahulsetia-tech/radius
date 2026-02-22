@@ -5,11 +5,11 @@
   },
   {
     "content": "Copy frontend files (src/, index.html, vite.config.ts, tsconfig.json, package.json) to /app/frontend/",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Install frontend Node dependencies via yarn",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Configure supervisord for Vite (port 3000) instead of CRA",

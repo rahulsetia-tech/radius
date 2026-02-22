@@ -22,8 +22,7 @@ export default function KnowledgeBasePage() {
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["/api/knowledge-base"],
     queryFn: async () => {
-      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || "";
-      const res = await fetch(`${backendUrl}/api/knowledge-base?company_id=default`);
+      const res = await fetch(`${API_BASE_URL}/api/knowledge-base?company_id=default`);
       if (!res.ok) {
         throw new Error(`Failed to fetch: ${res.status}`);
       }

@@ -27,23 +27,38 @@ export default function Home() {
 
   const analyzeMutation = useMutation({
     mutationFn: async (url: string) => {
-      // Add cache-busting headers to ensure fresh analysis
-      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": "no-store, no-cache, must-revalidate",
-          "Pragma": "no-cache",
-          "X-Request-Nonce": `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        },
-        body: JSON.stringify({ url }),
-      });
+      // Create abort controller with extended timeout for slow OpenAI API
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 120000); // 120 second timeout
       
-      if (!response.ok) {
-        throw new Error(`Analysis failed: ${response.status}`);
+      try {
+        // Add cache-busting headers to ensure fresh analysis
+        const response = await fetch(`${API_BASE_URL}/api/analyze`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-store, no-cache, must-revalidate",
+            "Pragma": "no-cache",
+            "X-Request-Nonce": `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          },
+          body: JSON.stringify({ url }),
+          signal: controller.signal,
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) {
+          throw new Error(`Analysis failed: ${response.status}`);
+        }
+        
+        return await response.json() as AnalysisResult;
+      } catch (err: any) {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') {
+          throw new Error("Analysis timed out. Please try again.");
+        }
+        throw err;
       }
-      
-      return await response.json() as AnalysisResult;
     },
     onSuccess: (data) => {
       // REDIRECT to analysis page with analysisId

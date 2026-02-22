@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AlertTriangle, Search, TrendingDown, Lightbulb, Zap } from "lucide-react";
+import { API_BASE_URL } from "@/config";
 
 interface SearchIntelligenceProps {
     brandName?: string;

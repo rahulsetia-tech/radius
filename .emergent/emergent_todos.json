@@ -1,6 +1,34 @@
 [
   {
-    "content": "Verification: Screenshot landing page and analysis tabs",
-    "status": "completed"
+    "content": "READ all current file states before any edits",
+    "status": "in_progress"
+  },
+  {
+    "content": "FIX #1a: Restore config.ts to localhost:8001 fallback (remove console.log)",
+    "status": "pending"
+  },
+  {
+    "content": "FIX #1b: Fix NEW files: KnowledgeBaseSummaryPanel.tsx, RedditDashboard.tsx, KnowledgeBasePage.tsx",
+    "status": "pending"
+  },
+  {
+    "content": "FIX #1c: Verify all 12 previously-touched files are correct",
+    "status": "pending"
+  },
+  {
+    "content": "FIX #2: Add retry:false to AnalysisPage.tsx query",
+    "status": "pending"
+  },
+  {
+    "content": "FIX #3: Verify gap-analysis + recommendations tabs in AnalysisResults.tsx",
+    "status": "pending"
+  },
+  {
+    "content": "FIX #4: Verify error display on Home.tsx",
+    "status": "pending"
+  },
+  {
+    "content": "Restart frontend + verify all tabs load",
+    "status": "pending"
   }
 ]

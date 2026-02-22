@@ -1,27 +1,11 @@
 [
   {
-    "content": "Clone actual Radius app from GitHub into /app",
-    "status": "completed"
-  },
-  {
-    "content": "Read CONTEXT.md, MIGRATION.md, README.md from cloned repo",
-    "status": "completed"
-  },
-  {
-    "content": "Copy backend files (server.py, services/, controllers/, models/, requirements.txt) to /app/backend/",
-    "status": "completed"
-  },
-  {
-    "content": "Set up backend/.env with OPENAI_API_KEY and MONGO_URL",
-    "status": "completed"
-  },
-  {
     "content": "Install backend Python dependencies",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Copy frontend files (src/, index.html, vite.config.ts, tsconfig.json, package.json) to /app/frontend/",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Install frontend Node dependencies via yarn",

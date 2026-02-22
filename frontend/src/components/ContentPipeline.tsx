@@ -14,8 +14,6 @@ interface ContentPipelineProps {
 
 type PipelineStep = 1 | 2 | 3 | 4;
 
-const API_BASE = import.meta.env.REACT_APP_BACKEND_URL || "";
-
 const steps = [
     { id: 1 as PipelineStep, label: "Social Intelligence", icon: MessageSquare, description: "Discover what consumers are saying" },
     { id: 2 as PipelineStep, label: "Content Angles", icon: PenTool, description: "AI-generated content ideas" },
